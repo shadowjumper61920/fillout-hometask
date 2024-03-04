@@ -57,13 +57,13 @@ app.get('/:formId/filteredResponses', async (req, res) => {
         }
 
         const totalResponses = filteredResponses.length;
-        const paginatedResponses = filteredResponses.slice(offset, parseInt(offset) + parseInt(limit));
+        const responses = filteredResponses.slice(offset, parseInt(offset) + parseInt(limit));
 
         const filteredTotalCount = filteredResponses.length;
         const pageCount = Math.ceil(filteredTotalCount / limit);
 
         res.json({
-            responses: paginatedResponses,
+            responses,
             totalResponses,
             pageCount,
         });
